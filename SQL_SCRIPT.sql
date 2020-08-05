@@ -59,6 +59,7 @@ CREATE TABLE `student_history` (
     `last_modification` DATETIME NOT NULL,
     `created_at` DATETIME DEFAULT NOW(),
     `history_insertion` DATETIME NOT NULL DEFAULT NOW(),
+    `operation` varchar(128) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -75,6 +76,7 @@ CREATE TABLE `phone_history` (
     `last_modification` DATETIME NOT NULL,
     `created_at` DATETIME DEFAULT NOW(),
     `history_insertion` DATETIME NOT NULL DEFAULT NOW(),
+    `operation` varchar(128) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -105,8 +107,8 @@ BEFORE UPDATE
 ON student FOR EACH ROW
 BEGIN
 
-INSERT INTO student_history(student_id, first_name, last_name, enrollment_id, times_updated, last_modification, created_at, history_insertion)
-VALUES (OLD.id, OLD.first_name, OLD.last_name, OLD.enrollment_id, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW());
+INSERT INTO student_history(student_id, first_name, last_name, enrollment_id, times_updated, last_modification, created_at, history_insertion, operation)
+VALUES (OLD.id, OLD.first_name, OLD.last_name, OLD.enrollment_id, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW(), 'update');
 
 END $$
 DELIMITER ;
@@ -119,8 +121,8 @@ BEFORE DELETE
 ON student FOR EACH ROW
 BEGIN
 
-INSERT INTO student_history(student_id, first_name, last_name, enrollment_id, times_updated, last_modification, created_at, history_insertion)
-VALUES (OLD.id, OLD.first_name, OLD.last_name, OLD.enrollment_id, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW());
+INSERT INTO student_history(student_id, first_name, last_name, enrollment_id, times_updated, last_modification, created_at, history_insertion, operation)
+VALUES (OLD.id, OLD.first_name, OLD.last_name, OLD.enrollment_id, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW(), 'delete');
 
 END $$
 DELIMITER ;
@@ -153,8 +155,8 @@ BEFORE UPDATE
 ON phone FOR EACH ROW
 BEGIN
 
-INSERT INTO phone_history(phone_id, phone_number, phone_type, times_updated, last_modification, created_at, history_insertion)
-VALUES (OLD.id, OLD.phone_number, OLD.phone_type, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW());
+INSERT INTO phone_history(phone_id, phone_number, phone_type, times_updated, last_modification, created_at, history_insertion, operation)
+VALUES (OLD.id, OLD.phone_number, OLD.phone_type, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW(), 'update');
 
 END $$
 DELIMITER ;
@@ -167,8 +169,8 @@ BEFORE DELETE
 ON phone FOR EACH ROW
 BEGIN
 
-INSERT INTO phone_history(phone_id, phone_number, phone_type, times_updated, last_modification, created_at, history_insertion)
-VALUES (OLD.id, OLD.phone_number, OLD.phone_type, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW());
+INSERT INTO phone_history(phone_id, phone_number, phone_type, times_updated, last_modification, created_at, history_insertion, operation)
+VALUES (OLD.id, OLD.phone_number, OLD.phone_type, OLD.times_updated, OLD.last_modification, OLD.created_at, NOW(), 'delete');
 
 END $$
 DELIMITER ;
