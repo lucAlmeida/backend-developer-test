@@ -1,0 +1,51 @@
+body {
+	background-color: #bab4a2;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+.app-container {
+	background-color: #24c95c;
+	height: 80vh;
+	padding: 2rem;
+	margin: 0 auto;
+}
+
+.app-title {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 3rem;
+	text-align: center;
+	padding-top: 7rem;
+	padding-bottom: 1rem;
+}
+
+.app-subtitle {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.5rem;
+	text-align: center;
+	color: #041d57;
+}
+
+.docs-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+	color: #bab4a2
+}
+
+.docs-container-logo {
+	padding-right: 2rem;
+}
+
+.docs-container-button {
+	background-color: #2a56bd;
+	font-weight: 700;
+	padding: 1rem 1.2rem;
+}
+
+.docs-container-button-label {
+	text-decoration: none;
+}

@@ -1,3 +1,27 @@
+# Notas de Implementação
+
+- Aplicação implementada utilizando Spring Boot, Spring Data JPA e MySQL
+- Documentação gerada usando Springfox/Swagger UI
+- Testes da aplicação foram realizados utilizando Mockito e JUnit 5
+## Configuração inicial
+
+### MySQL
+- Importar o arquivo SQL_SCRIPT.sql através de uma sessão de usuário com privilégios para criação de tabelas, banco de dados e triggers
+- Após execução do script será criado o usuário ```student_manager```, identificado pela senha padrão ```student_manager```.
+- Tal usuário tem privilégios de acesso para o banco de dados ```student_management```, que manterá as tabelas responsáveis pelo armazenamento dos dados provenientes da API de Registro de Estudantes. Este também é o usuário utilizado por padrão pela aplicação.
+
+### Spring Boot
+
+- Aplicação pode ser inicializada através da execução do seguinte comando na pasta raíz do projeto:  
+``` mvn spring-boot:run```
+- Após a execução do comando a aplicação estará disponível no endereço <localhost:8181>
+
+## Requisitos
+
+- Java JDK 11
+- Maven
+- MySQL
+
 # Backend Developer - Test #
 
 ![Forleven Logo](https://site.forleven.com/img/logotipo_green.png)

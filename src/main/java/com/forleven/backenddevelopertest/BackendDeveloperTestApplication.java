@@ -9,5 +9,4 @@ public class BackendDeveloperTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendDeveloperTestApplication.class, args);
 	}
-
 }
